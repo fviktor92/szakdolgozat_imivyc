@@ -1,0 +1,8 @@
+# Project exclude paths
+*.js
+!plugins/*.js
+/test/cypress/videos/
+/test/cypress/screenshots/
+**/__diff_output__/*
+**/cypress/report/
+**/api/report/

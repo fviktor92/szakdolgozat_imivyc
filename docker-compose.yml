@@ -1,0 +1,83 @@
+version: '3'
+
+services:
+  # WEBAPP STARTS HERE
+  # Client
+  client:
+    image: webapp-client
+    environment:
+      REACT_APP_API_URL: http://api:3001
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./facerecognition-app/client:/client
+      - facerecognition-app/client/node_modules
+    links:
+      - api
+    networks:
+      - webappnetwork
+
+  #Backend api
+  api:
+    image: webapp-api
+    environment:
+      POSTGRES_URI: postgres://postgres:admin@postgres:5432/smartbrain
+      REDIS_URI: redis://redis:6379
+    links:
+      - postgres
+      - redis
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./facerecognition-app/api:/api
+      - facerecognition-app/api/node_modules
+    networks:
+      - webappnetwork
+
+  # Postgres
+  postgres:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: smartbrain
+      POSTGRES_HOST: postgres
+    build: ./facerecognition-app/api/postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - webappnetwork
+
+  # Redis
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - webappnetwork
+  # WEBAPP ENDS HERE
+      
+  # AUTOTEST STARTS HERE
+  autotest:
+    image: autotest
+    build: ./facerecognition-autotest
+    container_name: autotest
+    depends_on:
+      - client
+      - api
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./facerecognition-autotest/:/autotest
+      - facerecognition-autotest/node_modules
+    tty: true
+    networks:
+      - webappnetwork
+  # AUTOTEST ENDS HERE
+    
+networks:
+  webappnetwork:
+    driver: bridge

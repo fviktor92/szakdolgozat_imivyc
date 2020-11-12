@@ -1,0 +1,102 @@
+{
+  "status": {
+    "code": 10000,
+    "description": "Ok",
+    "req_id": "3665a9e7d3c74b1f9cd00f55a5e23b40"
+  },
+  "outputs": [
+    {
+      "id": "8838b8ecd0e94aff996f80651598938a",
+      "status": {
+        "code": 10000,
+        "description": "Ok"
+      },
+      "created_at": "2020-11-04T18:13:57.600445255Z",
+      "model": {
+        "id": "a403429f2ddf4b49b307e318f00e528b",
+        "name": "face",
+        "created_at": "2016-10-25T19:30:38.541073Z",
+        "app_id": "main",
+        "output_info": {
+          "output_config": {
+            "concepts_mutually_exclusive": false,
+            "closed_environment": false,
+            "max_concepts": 0,
+            "min_value": 0
+          },
+          "message": "Show output_info with: GET /models/{model_id}/output_info",
+          "type": "detect-concept",
+          "type_ext": "detect-concept"
+        },
+        "model_version": {
+          "id": "34ce21a40cc24b6b96ffee54aabff139",
+          "created_at": "2019-01-17T19:45:49.087547Z",
+          "status": {
+            "code": 21100,
+            "description": "Model is trained and ready"
+          }
+        },
+        "display_name": "Face Detection",
+        "input_info": {},
+        "train_info": {},
+        "model_type_id": "visual-detector"
+      },
+      "input": {
+        "id": "5bb7ae023f204fe997b5428684677f55",
+        "data": {
+          "image": {
+            "url": "https://clarifai.com/cms-assets/20180320221617/face-004.jpg"
+          }
+        }
+      },
+      "data": {
+        "regions": [
+          {
+            "id": "iekb29a3xscn",
+            "region_info": {
+              "bounding_box": {
+                "top_row": 0.25336015,
+                "left_col": 0.7548263,
+                "bottom_row": 0.7215567,
+                "right_col": 0.9827392
+              }
+            },
+            "data": {
+              "concepts": [
+                {
+                  "id": "ai_8jtPl3Xj",
+                  "name": "face",
+                  "value": 0.99983656,
+                  "app_id": "main"
+                }
+              ]
+            },
+            "value": 0.99983656
+          },
+          {
+            "id": "tj9s53gsh7ox",
+            "region_info": {
+              "bounding_box": {
+                "top_row": 0.06884859,
+                "left_col": 0.5504088,
+                "bottom_row": 0.4609804,
+                "right_col": 0.75762063
+              }
+            },
+            "data": {
+              "concepts": [
+                {
+                  "id": "ai_8jtPl3Xj",
+                  "name": "face",
+                  "value": 0.99975806,
+                  "app_id": "main"
+                }
+              ]
+            },
+            "value": 0.99975806
+          }
+        ]
+      }
+    }
+  ]
+}

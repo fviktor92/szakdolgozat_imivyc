@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "./node_modules",
+    "rootDir": "./"
+  },
+  "module": "es6",
+  "target": "es6",
+  "lib": [
+    "es6",
+    "dom"
+  ],
+  "types": [
+    "cypress",
+    "cypress-image-snapshot",
+    "pg",
+    "node"
+  ],
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ]
+}

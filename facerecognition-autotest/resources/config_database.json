@@ -1,0 +1,15 @@
+{
+  "docker": {
+    "host": "postgres",
+    "database": "smartbrain",
+    "user": "postgres",
+    "password": "admin"
+  },
+  "local": {
+    "host": "localhost",
+    "port": 5432,
+    "database": "smartbrain",
+    "user": "postgres",
+    "password": "admin"
+  }
+}
